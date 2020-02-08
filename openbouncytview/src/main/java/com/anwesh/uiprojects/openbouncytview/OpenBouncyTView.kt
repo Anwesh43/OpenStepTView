@@ -48,7 +48,7 @@ fun Canvas.drawOpenBouncyT(scale : Float, size : Float, paint : Paint) {
 fun Canvas.drawOBTNode(i : Int, scale : Float, paint : Paint) {
     val w : Float = width.toFloat()
     val h : Float = height.toFloat()
-    val gap : Float = w / (nodes + 1)
+    val gap : Float = h / (nodes + 1)
     val size : Float = gap / sizeFactor
     paint.color = foreColor
     paint.strokeCap = Paint.Cap.ROUND
