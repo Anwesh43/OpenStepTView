@@ -213,4 +213,13 @@ class OpenBouncyTView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : OpenBouncyTView {
+            val view : OpenBouncyTView = OpenBouncyTView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
