@@ -190,4 +190,26 @@ class OpenBouncyTView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : OpenBouncyTView) {
+
+        private val animator : Animator = Animator(view)
+        private val obt : OpenBouncyT = OpenBouncyT(0)
+
+        fun render(canvas : Canvas, paint : Paint) {
+            canvas.drawColor(backColor)
+            obt.draw(canvas, paint)
+            animator.animate {
+                obt.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            obt.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
